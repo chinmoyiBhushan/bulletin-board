@@ -1,2 +1,211 @@
-@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);#root,body,div#react-container,html{height:100%;background:#eab92d;background:radial-gradient(ellipse at center,#eab92d 57%,#c79810 99%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#eab92d",endColorstr="#c79810",GradientType=1)}body{margin:0;padding:0}.board{display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;-webkit-align-items:center;align-items:center;width:100%;height:auto}.note{min-height:200px;width:200px;background-color:#ff0;margin:20px;position:relative;cursor:-webkit-grab;box-shadow:5px 5px 15px 0 rgba(0,0,0,.2)}.note:active{cursor:-webkit-grabbing}.note p{font-size:22px;padding:5px}.note p,.note textarea{font-family:"Shadows Into Light",Arial}.note textarea{max-width:100%;background:transparent;font-size:20px}.note:hover>.actions{opacity:1}.note>.actions{position:absolute;bottom:5px;right:0;-webkit-transform:translateX(50%);transform:translateX(50%);opacity:0;transition:opacity .25s linear;z-index:1}.note>.actions>button{display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;border-radius:50%;border:0;color:#fff;width:2em;height:2em;margin:.25em;font-size:.75em}.note button{margin:2px;outline:none}.note>textarea{height:75%;background:hsla(0,0%,100%,.5)}.note .doneCheckBox{position:absolute;top:0;right:0;border:0;display:-webkit-inline-flex;display:inline-flex;-webkit-align-items:center;align-items:center;text-transform:uppercase;font-family:monospace;background:#2196f3;padding:.125em .5em;color:#fff;font-size:.9em;margin:.5em;opacity:.2;transition:opacity .25s;border-radius:50px}.note.done .doneCheckBox,.note .doneCheckBox:hover{opacity:.8}.note .doneCheckBox label{display:inline-block;width:0;text-align:center;transition:width .25s;overflow:hidden}.note.done .doneCheckBox label,.note .doneCheckBox:hover label{width:2.4em}.board button{color:#fff;font-size:14px;box-shadow:0 0 5px 0 rgba(0,0,0,.55)}#add{width:40px;background-color:#5cb85c;height:3em;margin-left:5px}#edit{background-color:#337ab7}#save{background-color:#5cb85c}#remove{background-color:#d9534f}#comment{background-color:#000}form .add-comment-control input{font-size:12px;font-family:monospace;margin:5px}.add-comment .submit{margin-left:8px;font-size:12px;background:#f86825}.comment{margin:5px;padding:2px 5px;font-family:monospace;font-size:14px;color:grey;position:relative;overflow-wrap:break-word}.comment .delete{position:absolute;top:0;right:0;display:-webkit-flex;display:flex;border:0;cursor:pointer;box-shadow:none;color:#f44336;opacity:0;transition:opacity .25s;background:radial-gradient(ellipse at center,#ff0 50%,transparent 99%);font-size:.9em;padding:.25em .5em}.comment:hover .delete{opacity:1}
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+#root,
+body,
+div#react-container,
+html {
+    height: 100%;
+    background: #eab92d;
+    background: radial-gradient(ellipse at center, #eab92d 57%, #c79810 99%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#eab92d", endColorstr="#c79810", GradientType=1)
+}
+
+body {
+    margin: 0;
+    padding: 0
+}
+
+.board {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-items: center;
+    align-items: center;
+    width: 100%;
+    height: auto
+}
+
+.note {
+    min-height: 200px;
+    width: 200px;
+    background-color: #ff0;
+    margin: 20px;
+    position: relative;
+    cursor: -webkit-grab;
+    box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2)
+}
+
+.note:active {
+    cursor: -webkit-grabbing
+}
+
+.note p {
+    font-size: 22px;
+    padding: 5px
+}
+
+.note p,
+.note textarea {
+    font-family: "Shadows Into Light", Arial
+}
+
+.note textarea {
+    max-width: 100%;
+    background: transparent;
+    font-size: 20px
+}
+
+.note:hover>.actions {
+    opacity: 1
+}
+
+.note>.actions {
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    -webkit-transform: translateX(50%);
+    transform: translateX(50%);
+    opacity: 0;
+    transition: opacity .25s linear;
+    z-index: 1
+}
+
+.note>.actions>button {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 0;
+    color: #fff;
+    width: 2em;
+    height: 2em;
+    margin: .25em;
+    font-size: .75em
+}
+
+.note button {
+    margin: 2px;
+    outline: none
+}
+
+.note>textarea {
+    height: 75%;
+    background: hsla(0, 0%, 100%, .5)
+}
+
+.note .doneCheckBox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-align-items: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: monospace;
+    background: #2196f3;
+    padding: .125em .5em;
+    color: #fff;
+    font-size: .9em;
+    margin: .5em;
+    opacity: .2;
+    transition: opacity .25s;
+    border-radius: 50px
+}
+
+.note.done .doneCheckBox,
+.note .doneCheckBox:hover {
+    opacity: .8
+}
+
+.note .doneCheckBox label {
+    display: inline-block;
+    width: 0;
+    text-align: center;
+    transition: width .25s;
+    overflow: hidden
+}
+
+.note.done .doneCheckBox label,
+.note .doneCheckBox:hover label {
+    width: 2.4em
+}
+
+.board button {
+    color: #fff;
+    font-size: 14px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .55)
+}
+
+#add {
+    width: 40px;
+    background-color: #5cb85c;
+    height: 3em;
+    margin-left: 5px
+}
+
+#edit {
+    background-color: #337ab7
+}
+
+#save {
+    background-color: #5cb85c
+}
+
+#remove {
+    background-color: #d9534f
+}
+
+#comment {
+    background-color: #000
+}
+
+form .add-comment-control input {
+    font-size: 12px;
+    font-family: monospace;
+    margin: 5px
+}
+
+.add-comment .submit {
+    margin-left: 8px;
+    font-size: 12px;
+    background: #f86825
+}
+
+.comment {
+    margin: 5px;
+    padding: 2px 5px;
+    font-family: monospace;
+    font-size: 14px;
+    color: grey;
+    position: relative;
+    overflow-wrap: break-word
+}
+
+.comment .delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: -webkit-flex;
+    display: flex;
+    border: 0;
+    cursor: pointer;
+    box-shadow: none;
+    color: #f44336;
+    opacity: 0;
+    transition: opacity .25s;
+    background: radial-gradient(ellipse at center, #ff0 50%, transparent 99%);
+    font-size: .9em;
+    padding: .25em .5em
+}
+
+.comment:hover .delete {
+    opacity: 1
+}
+
+
 /*# sourceMappingURL=main.eabae28a.chunk.css.map */
