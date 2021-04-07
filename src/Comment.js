@@ -15,7 +15,7 @@ export class CommentForm extends Component {
 
     render() {
         return (
-            <form className="add-comment" onSubmit={(this.submitComment)}>
+            <form className="add-comment" onSubmit={this.submitComment}>
                 <div className='add-comment-control'>
                     <input type="text" placeholder='Add Comment' ref={input => this._newText = input} />
                 </div>

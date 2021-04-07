@@ -4,9 +4,12 @@ import {CommentForm, Comment} from './Comment'
 import {FaPencilAlt, FaTrash, FaSave, FaComment} from 'react-icons/fa'
 
 class Note extends Component {
+    uniqueId = 0
+    
     constructor(props) {
         super(props)
         this.state = {
+            uniqueId: 0,
             editing: false,
             done: false,
             commenting: false,
@@ -68,7 +71,7 @@ class Note extends Component {
     generateCommentHtml(comment, index) {
         return (
             <Comment key={index} index={index} onRemove={this.removeComment}>
-                {comment}
+                {`${comment.id}. ${comment.comment}`}
             </Comment>
         )
     }
@@ -77,8 +80,9 @@ class Note extends Component {
         this.setState(prevState => ({
             comments: [
                 ...prevState.comments,
-                comment,
+                {id: prevState.uniqueId + 1, comment},
             ],
+            uniqueId: prevState.uniqueId + 1,
             commenting: false,
         }))
     }
